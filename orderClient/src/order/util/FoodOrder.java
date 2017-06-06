@@ -100,7 +100,7 @@ public class FoodOrder extends JFrame{
 	public void start() {
 		try {
 			String name = InetAddress.getLocalHost().getHostAddress(); //자신의 IP를 name으로 사용
-			Socket socket = new Socket("",1234); //서버의 IP주소와 열린 포트번호
+			Socket socket = new Socket("",7700); //서버의 IP주소와 열린 포트번호
 			Thread sender = new Thread(new ClientSender(socket, name)); //송신 Thread 생성
 			Thread receiver = new Thread(new ClientReceiver(socket)); //수신 Thread 생성
 			//Thread 시작
