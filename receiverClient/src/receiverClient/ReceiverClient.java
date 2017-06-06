@@ -11,7 +11,7 @@ public class ReceiverClient extends JFrame{
 	Container c;
 	
 	public ReceiverClient() {
-		setTitle("Àü±¤ÆÇ");
+		setTitle("ì „ê´‘íŒ");
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(400, 400);
@@ -42,8 +42,8 @@ public class ReceiverClient extends JFrame{
 	
 	private void start() {
 		try {
-			name = "receiver"; //¼­¹ö¿¡¼­ ¹Ş´Â ¿ªÇÒÀ» ÁöÁ¤ÇØµĞ ÀÌ¸§
-			Socket socket = new Socket("59.26.102.194",7700); //¼­¹öÀÇ IPÁÖ¼Ò¿Í ¿­¸° Æ÷Æ®¹øÈ£
+			name = "receiver"; //ì„œë²„ì—ì„œ ë°›ëŠ” ì—­í• ì„ ì§€ì •í•´ë‘” ì´ë¦„
+			Socket socket = new Socket("",7700); //ì„œë²„ì˜ IPì£¼ì†Œì™€ ì—´ë¦° í¬íŠ¸ë²ˆí˜¸
 			Thread receiver = new Thread(new Receiver(socket, name));
 			receiver.start();
 		}catch(Exception e) {}
