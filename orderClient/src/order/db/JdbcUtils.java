@@ -9,27 +9,27 @@ import java.sql.Statement;
 
 public class JdbcUtils {
 	static {
-		// Å¬·¡½º°¡ ·ÎµùµÉ ¶§ ÇÑ¹ø È£ÃâµÇ´Â ¿µ¿ª
-		// Class.forName() : Æ¯Á¤ Å¬·¡½º¸¦ ³» ¸Ş¸ğ¸®·Î ·ÎµùÇÏ´Â ¸Ş¼­µå
+		// í´ë˜ìŠ¤ê°€ ë¡œë”©ë  ë•Œ í•œë²ˆ í˜¸ì¶œë˜ëŠ” ì˜ì—­
+		// Class.forName() : íŠ¹ì • í´ë˜ìŠ¤ë¥¼ ë‚´ ë©”ëª¨ë¦¬ë¡œ ë¡œë”©í•˜ëŠ” ë©”ì„œë“œ
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 		} catch (ClassNotFoundException e) {
-			System.out.println("µå¶óÀÌ¹ö ·Îµù ½ÇÆĞ");
+			System.out.println("ë“œë¼ì´ë²„ ë¡œë”© ì‹¤íŒ¨");
 			e.printStackTrace();
 		}
 	}
 	
 	public static Connection getConnection() {
-		// DB ÀÛ¾÷¿¡ ÇÊ¿äÇÑ Connection °´Ã¼¸¦ »ı¼ºÇØÁÖ´Â ¸Ş¼­µå
-		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-		String user = "java_app";
-		String password = "1234";
+		// DB ì‘ì—…ì— í•„ìš”í•œ Connection ê°ì²´ë¥¼ ìƒì„±í•´ì£¼ëŠ” ë©”ì„œë“œ
+		String url = "";
+		String user = "";
+		String password = "";
 		Connection conn = null;
 		
 		try {
 			conn = DriverManager.getConnection(url, user, password);
 		} catch (SQLException e) {
-			System.out.println("DB ¿¬µ¿ ½ÇÆĞ");
+			System.out.println("DB ì—°ë™ ì‹¤íŒ¨");
 			e.printStackTrace();
 		}
 		
@@ -60,7 +60,7 @@ public class JdbcUtils {
 		}
 	}
 	
-	// Resource¸¦ ´İ¾ÆÁÖ´Â ¸Ş¼­µå - ¿À¹ö·Îµù(Overloading)
+	// Resourceë¥¼ ë‹«ì•„ì£¼ëŠ” ë©”ì„œë“œ - ì˜¤ë²„ë¡œë”©(Overloading)
 	public static void close(ResultSet rs) {
 		try {
 			rs.close();
@@ -69,7 +69,7 @@ public class JdbcUtils {
 		}
 	}
 	
-	// transaction Ã³¸®ÇÏ´Â ¸Ş¼­µå
+	// transaction ì²˜ë¦¬í•˜ëŠ” ë©”ì„œë“œ
 	public static void commit(Connection conn) {
 		try {
 			conn.commit();
