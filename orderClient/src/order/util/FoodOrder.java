@@ -19,7 +19,7 @@ import order.util.ConsoleUtils;
 public class FoodOrder extends JFrame{
 	Container c;
 	JButton[] typeBtn = new JButton[3];
-	String[] type = {"ÇÑ½Ä", "Áß½Ä", "¾ç½Ä"};
+	String[] type = {"í•œì‹", "ì¤‘ì‹", "ì–‘ì‹"};
 	static JTextArea orderList = new JTextArea();
 	static JButton[] foodBtn = new JButton[9];
 	Action action = null;
@@ -59,34 +59,34 @@ public class FoodOrder extends JFrame{
 		for(int i = 0; i < typeBtn.length; i++) {
 			typeBtn[i] = new JButton();
 			typeBtn[i].setText(type[i]);
-			typeBtn[i].addActionListener(new TypeButtonAction()); //À½½Ä type ¼±ÅÃ ÀÌº¥Æ® Ã³¸®
+			typeBtn[i].addActionListener(new TypeButtonAction()); //ìŒì‹ type ì„ íƒ ì´ë²¤íŠ¸ ì²˜ë¦¬
 			typeBtn[i].setFont(new Font("D2Coding", Font.PLAIN, 20));
 			buttonPanel.add(typeBtn[i]);
-		} //ÁÖ¹®ÇÒ À½½ÄÀÇ typeÀ» ¼±ÅÃÇÒ ¼ö ÀÖ´Â ¹öÆ°À» »ı¼º(ÇÑ½Ä, Áß½Ä, ¾ç½Ä)
+		} //ì£¼ë¬¸í•  ìŒì‹ì˜ typeì„ ì„ íƒí•  ìˆ˜ ìˆëŠ” ë²„íŠ¼ì„ ìƒì„±(í•œì‹, ì¤‘ì‹, ì–‘ì‹)
 		
 		for(int i = 0; i < foodBtn.length; i++) {
 			foodBtn[i] = new JButton();
-			foodBtn[i].addActionListener(new FoodButtonAction()); //¼±ÅÃÇÑ À½½ÄÀ» ÁÖ¹®³»¿ª¼­¿¡ Ãß°¡ÇÏ´Â ÀÌº¥Æ® Ã³¸®
+			foodBtn[i].addActionListener(new FoodButtonAction()); //ì„ íƒí•œ ìŒì‹ì„ ì£¼ë¬¸ë‚´ì—­ì„œì— ì¶”ê°€í•˜ëŠ” ì´ë²¤íŠ¸ ì²˜ë¦¬
 			foodBtn[i].addMouseListener(new FoodButtonAction());
 			foodBtn[i].setFont(new Font("D2Coding", Font.PLAIN, 15));
 			foodBtn[i].setBackground(new Color(145,194,249));
 			buttonPanel.add(foodBtn[i]);
-		} //ÁÖ¹®ÇÒ À½½ÄÀÇ Á¾·ù¸¦ ¼±ÅÃÇÒ ¼ö ÀÖ´Â ¹öÆ°À» »ı¼º
+		} //ì£¼ë¬¸í•  ìŒì‹ì˜ ì¢…ë¥˜ë¥¼ ì„ íƒí•  ìˆ˜ ìˆëŠ” ë²„íŠ¼ì„ ìƒì„±
 		
 		JPanel orderPanel = new JPanel();
 		JPanel orderBtnPanel = new JPanel();
 		JScrollPane scrollPane;
-		JButton orderSendBtn = new JButton("ÁÖ¹®"); //¼±ÅÃÇÑ À½½ÄÀ» ÁÖ¹®ÇÏ´Â ¹öÆ°
-		JButton orderCancelBtn = new JButton("ÁÖ¹®Ãë¼Ò"); //¸ğµç ÁÖ¹®¸®½ºÆ®¸¦ ÃÊ±âÈ­ ÇÏ´Â ¹öÆ°
+		JButton orderSendBtn = new JButton("ì£¼ë¬¸"); //ì„ íƒí•œ ìŒì‹ì„ ì£¼ë¬¸í•˜ëŠ” ë²„íŠ¼
+		JButton orderCancelBtn = new JButton("ì£¼ë¬¸ì·¨ì†Œ"); //ëª¨ë“  ì£¼ë¬¸ë¦¬ìŠ¤íŠ¸ë¥¼ ì´ˆê¸°í™” í•˜ëŠ” ë²„íŠ¼
 		
 		orderPanel.setLayout(new BorderLayout());
 		orderBtnPanel.setLayout(new GridLayout(1, 2));
 		
-		orderSendBtn.addActionListener(new OrderButtonAction()); //ÁÖ¹® ÀÌº¥Æ® Ã³¸®
-		orderCancelBtn.addActionListener(new OrderButtonAction()); //ÁÖ¹® Ãë¼Ò ÀÌº¥Æ® Ã³¸®
-		orderList.setEditable(false); //ÁÖ¹®³»¿ª »ç¿ëÀÚ ¼öÁ¤ ºÒ°¡
+		orderSendBtn.addActionListener(new OrderButtonAction()); //ì£¼ë¬¸ ì´ë²¤íŠ¸ ì²˜ë¦¬
+		orderCancelBtn.addActionListener(new OrderButtonAction()); //ì£¼ë¬¸ ì·¨ì†Œ ì´ë²¤íŠ¸ ì²˜ë¦¬
+		orderList.setEditable(false); //ì£¼ë¬¸ë‚´ì—­ ì‚¬ìš©ì ìˆ˜ì • ë¶ˆê°€
 		orderList.setFont(new Font("D2Coding", Font.PLAIN, 25));
-		scrollPane = new JScrollPane(orderList); //JTextArea¿¡ ½ºÅ©·Ñ ±â´É Ãß°¡
+		scrollPane = new JScrollPane(orderList); //JTextAreaì— ìŠ¤í¬ë¡¤ ê¸°ëŠ¥ ì¶”ê°€
 		
 		orderPanel.add("Center",scrollPane);
 		orderBtnPanel.add(orderSendBtn);
@@ -99,11 +99,11 @@ public class FoodOrder extends JFrame{
 	
 	public void start() {
 		try {
-			String name = InetAddress.getLocalHost().getHostAddress(); //ÀÚ½ÅÀÇ IP¸¦ nameÀ¸·Î »ç¿ë
-			Socket socket = new Socket("59.26.102.194",7700); //¼­¹öÀÇ IPÁÖ¼Ò¿Í ¿­¸° Æ÷Æ®¹øÈ£
-			Thread sender = new Thread(new ClientSender(socket, name)); //¼Û½Å Thread »ı¼º
-			Thread receiver = new Thread(new ClientReceiver(socket)); //¼ö½Å Thread »ı¼º
-			//Thread ½ÃÀÛ
+			String name = InetAddress.getLocalHost().getHostAddress(); //ìì‹ ì˜ IPë¥¼ nameìœ¼ë¡œ ì‚¬ìš©
+			Socket socket = new Socket("",1234); //ì„œë²„ì˜ IPì£¼ì†Œì™€ ì—´ë¦° í¬íŠ¸ë²ˆí˜¸
+			Thread sender = new Thread(new ClientSender(socket, name)); //ì†¡ì‹  Thread ìƒì„±
+			Thread receiver = new Thread(new ClientReceiver(socket)); //ìˆ˜ì‹  Thread ìƒì„±
+			//Thread ì‹œì‘
 			sender.start();
 			receiver.start();
 		}catch(Exception e) {}
@@ -115,20 +115,20 @@ public class FoodOrder extends JFrame{
 		public void actionPerformed(ActionEvent e) {
 			JButton check = (JButton)e.getSource();
 			
-			switch(check.getText()) { //À½½ÄÀÇ TypeÀÌ ÀûÇôÀÖ´Â ¹öÆ°ÀÇ Text¸¦ ÀĞ¾î¿Â´Ù
-			case "ÇÑ½Ä":
-				action = new KoreaFoodAction(); //ÇÑ½ÄÀ» ¼±ÅÃÇÑ °æ¿ìÀÇ ¾×¼Ç Ã³¸®
+			switch(check.getText()) { //ìŒì‹ì˜ Typeì´ ì í˜€ìˆëŠ” ë²„íŠ¼ì˜ Textë¥¼ ì½ì–´ì˜¨ë‹¤
+			case "í•œì‹":
+				action = new KoreaFoodAction(); //í•œì‹ì„ ì„ íƒí•œ ê²½ìš°ì˜ ì•¡ì…˜ ì²˜ë¦¬
 				break;
-			case "Áß½Ä":
-				action = new ChinaFoodAction(); //Áß½ÄÀ» ¼±ÅÃÇÑ °æ¿ìÀÇ ¾×¼Ç Ã³¸®
+			case "ì¤‘ì‹":
+				action = new ChinaFoodAction(); //ì¤‘ì‹ì„ ì„ íƒí•œ ê²½ìš°ì˜ ì•¡ì…˜ ì²˜ë¦¬
 				break;
-			case "¾ç½Ä":
-				action = new WesternFoodAction(); //¾ç½ÄÀ» ¼±ÅÃÇÑ °æ¿ìÀÇ ¾×¼± Ã³¸®
+			case "ì–‘ì‹":
+				action = new WesternFoodAction(); //ì–‘ì‹ì„ ì„ íƒí•œ ê²½ìš°ì˜ ì•¡ì„  ì²˜ë¦¬
 				break;
 			}
 			
 			if(action != null) {
-				fc.requestProcess(action); //¾×¼ÇÀÌ ÀÖ´Â °æ¿ì ¾×¼ÇÀ» ½ÇÇà
+				fc.requestProcess(action); //ì•¡ì…˜ì´ ìˆëŠ” ê²½ìš° ì•¡ì…˜ì„ ì‹¤í–‰
 			}
 		}
 	}
@@ -139,7 +139,7 @@ public class FoodOrder extends JFrame{
 		public void actionPerformed(ActionEvent e) {
 			JButton check = (JButton)e.getSource();
 			if(!check.getText().equals("")) {
-				cu.showFoodOrder(check.getText()); //À½½ÄÀÇ Á¾·ù¸¦ ¼±ÅÃÇÏ¿© ÁÖ¹®³»¿ª¼­¿¡ ±× ³»¿ëÀ» ÀÔ·Â
+				cu.showFoodOrder(check.getText()); //ìŒì‹ì˜ ì¢…ë¥˜ë¥¼ ì„ íƒí•˜ì—¬ ì£¼ë¬¸ë‚´ì—­ì„œì— ê·¸ ë‚´ìš©ì„ ì…ë ¥
 			}
 		}
 		
@@ -161,27 +161,27 @@ public class FoodOrder extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			JButton check = (JButton)e.getSource();
-			switch(check.getText()) { //ÁÖ¹®, ÁÖ¹®Ãë¼ÒÀÇ ±¸ºĞ
-			case "ÁÖ¹®":
+			switch(check.getText()) { //ì£¼ë¬¸, ì£¼ë¬¸ì·¨ì†Œì˜ êµ¬ë¶„
+			case "ì£¼ë¬¸":
 				if(!orderList.getText().equals("")) {
 					try {
-						ClientSender.out.writeUTF(InetAddress.getLocalHost().getHostAddress()); //ÀÚ½ÅÀÇ IP¸¦ ¼­¹ö·Î Àü¼Û
-						Thread.sleep(100); //0.1ÃÊ ´ë±â
+						ClientSender.out.writeUTF(InetAddress.getLocalHost().getHostAddress()); //ìì‹ ì˜ IPë¥¼ ì„œë²„ë¡œ ì „ì†¡
+						Thread.sleep(100); //0.1ì´ˆ ëŒ€ê¸°
 						String list = orderList.getText();
-						String[] oneOrder = list.split("\n"); //ÁÖ¹®³»¿ª¼­ÀÇ ³»¿ëÀ» ±¸ºĞ
+						String[] oneOrder = list.split("\n"); //ì£¼ë¬¸ë‚´ì—­ì„œì˜ ë‚´ìš©ì„ êµ¬ë¶„
 						
 						for(int i = 0; i < oneOrder.length; i++) {
-							ClientSender.out.writeUTF(oneOrder[i]); //ÁÖ¹®³»¿ª¼­ÀÇ ³»¿ëÀ» Àü¼Û
+							ClientSender.out.writeUTF(oneOrder[i]); //ì£¼ë¬¸ë‚´ì—­ì„œì˜ ë‚´ìš©ì„ ì „ì†¡
 						}
 						
-						orderList.setText(""); //ÁÖ¹®³»¿ª¼­ ÃÊ±âÈ­
+						orderList.setText(""); //ì£¼ë¬¸ë‚´ì—­ì„œ ì´ˆê¸°í™”
 						
-						option.showMessageDialog(null, cu.showOrderNumber(ClientReceiver.orderNum)); //ÁÖ¹®¹øÈ£ ÆË¾÷Ã¢À¸·Î Ç¥½Ã
+						option.showMessageDialog(null, cu.showOrderNumber(ClientReceiver.orderNum)); //ì£¼ë¬¸ë²ˆí˜¸ íŒì—…ì°½ìœ¼ë¡œ í‘œì‹œ
 					} catch (Exception e1) {}
 				}
 				break;
-			case "ÁÖ¹®Ãë¼Ò":
-				orderList.setText(""); //ÁÖ¹®³»¿ª¼­ ÃÊ±âÈ­
+			case "ì£¼ë¬¸ì·¨ì†Œ":
+				orderList.setText(""); //ì£¼ë¬¸ë‚´ì—­ì„œ ì´ˆê¸°í™”
 				break;
 			}
 		}
